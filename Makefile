@@ -1,4 +1,4 @@
-.PHONY: fmt checkfmt clean
+.PHONY: fmt checkfmt clean test
 
 fmt:
 	isort --profile black .
@@ -9,3 +9,6 @@ checkfmt:
 
 clean:
 	find . -type f -name '*.py[co]' -delete -o -type d -name __pycache__ -delete
+
+test:
+	python manage.py test

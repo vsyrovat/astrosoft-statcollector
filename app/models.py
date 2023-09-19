@@ -9,7 +9,7 @@ class AccessLogEntry(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     ip = models.CharField(max_length=39)
     user_agent = models.CharField(max_length=255)
-    accept_language = models.CharField(max_length=50)
+    accept_language = models.CharField(max_length=50, null=True)
 
     def flag(self):
         country_code = re.search(r"[a-z]+", self.accept_language, flags=re.IGNORECASE)[
@@ -17,7 +17,7 @@ class AccessLogEntry(models.Model):
         ].upper()
         if country_code == "EN":
             country_code = "GBR"
-        return format_html(f'<img src="/static/flags/m/{country_code}.svg">')
+        return format_html(f'<img src="/static/flags/{country_code}.svg">')
 
     flag.short_description = "Accept Language"
 

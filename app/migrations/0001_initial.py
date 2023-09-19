@@ -23,8 +23,8 @@ class Migration(migrations.Migration):
                 ),
                 ("created_at", models.DateTimeField(auto_now_add=True)),
                 ("ip", models.CharField(max_length=39)),
-                ("user_agent", models.CharField(max_length=255)),
-                ("accept_language", models.CharField(max_length=50)),
+                ("user_agent", models.CharField(max_length=255, null=True)),
+                ("accept_language", models.CharField(max_length=50, null=True)),
             ],
             options={
                 "verbose_name_plural": "Access log entries",
