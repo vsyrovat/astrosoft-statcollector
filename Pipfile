@@ -9,6 +9,8 @@ django = "*"
 black = "*"
 isort = "*"
 django-debug-toolbar = "*"
+user-agents = "*"
+django-user-agents = "*"
 
 [dev-packages]
 
